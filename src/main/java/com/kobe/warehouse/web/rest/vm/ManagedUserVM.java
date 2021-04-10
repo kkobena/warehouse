@@ -16,7 +16,7 @@ public class ManagedUserVM extends UserDTO {
     private String password;
 
     public ManagedUserVM() {
-        // Empty constructor needed for Jackson.
+
     }
 
     public String getPassword() {

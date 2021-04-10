@@ -21,3 +21,18 @@ Main page styles
     background-size: contain;
   }
 }
+
+.card-item {
+  padding: 0.25rem;
+}
+.card-item .list-group-item {
+  border: 0;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.ag-theme-alpine {
+  padding: 0.75rem !important;
+}
+.ag-theme-card-item {
+  padding: 0;
+}

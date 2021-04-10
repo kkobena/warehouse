@@ -12,8 +12,13 @@
 # Full reference is available at:
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
-
+file:
+  report: ./reports
+  images: ./images
 logging:
+  file:
+    name: warehouse.log
+    path: ./logs
   level:
     ROOT: DEBUG
     io.github.jhipster: DEBUG
@@ -37,9 +42,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mariadb://localhost:3306/warehouse?useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mariadb://localhost:3306/stock?useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
     username: root
-    password:
+    password: 2802
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -49,10 +54,12 @@ spring:
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
   jpa:
-    show-sql: true
+    show-sql: false
+    hibernate:
+      ddl-auto: update
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev
   mail:
     host: localhost
     port: 25
@@ -62,7 +69,12 @@ spring:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
     cache: false
-
+  flyway:
+    enabled: true
+    schemas: stock
+    baseline-on-migrate: true
+    create-schemas: false
+    installed-by: root
 server:
   port: 8080
 

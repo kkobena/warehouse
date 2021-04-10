@@ -23,15 +23,14 @@ export class UserManagementUpdateComponent implements OnInit {
       [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(50),
+        Validators.maxLength(70),
         Validators.pattern('^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$'),
       ],
     ],
-    firstName: ['', [Validators.maxLength(50)]],
-    lastName: ['', [Validators.maxLength(50)]],
+    firstName: ['', [Validators.maxLength(100)]],
+    lastName: ['', [Validators.maxLength(150)]],
     email: ['', [Validators.minLength(5), Validators.maxLength(254), Validators.email]],
     activated: [],
-    langKey: [],
     authorities: [],
   });
 
@@ -80,7 +79,6 @@ export class UserManagementUpdateComponent implements OnInit {
       lastName: user.lastName,
       email: user.email,
       activated: user.activated,
-      langKey: user.langKey,
       authorities: user.authorities,
     });
   }
@@ -91,7 +89,6 @@ export class UserManagementUpdateComponent implements OnInit {
     user.lastName = this.editForm.get(['lastName'])!.value;
     user.email = this.editForm.get(['email'])!.value;
     user.activated = this.editForm.get(['activated'])!.value;
-    user.langKey = this.editForm.get(['langKey'])!.value;
     user.authorities = this.editForm.get(['authorities'])!.value;
   }
 

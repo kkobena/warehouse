@@ -9,6 +9,16 @@ import { AccountService } from 'app/core/auth/account.service';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { LoginService } from 'app/core/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import {
+  faStore,
+  faFileInvoiceDollar,
+  faUserTimes,
+  faWarehouse,
+  faShoppingBag,
+  faShippingFast,
+  faThList,
+  faShoppingBasket,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'jhi-navbar',
@@ -21,7 +31,15 @@ export class NavbarComponent implements OnInit {
   languages = LANGUAGES;
   swaggerEnabled?: boolean;
   version: string;
-
+  hideLanguage?: boolean;
+  faStore = faStore;
+  faUserTimes = faUserTimes;
+  faFileInvoiceDollar = faFileInvoiceDollar;
+  faWarehouse = faWarehouse;
+  faShoppingBag = faShoppingBag;
+  faThList = faThList;
+  faShippingFast = faShippingFast;
+  faShoppingBasket = faShoppingBasket;
   constructor(
     private loginService: LoginService,
     private languageService: JhiLanguageService,
@@ -32,6 +50,7 @@ export class NavbarComponent implements OnInit {
     private router: Router
   ) {
     this.version = VERSION ? (VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION) : '';
+    this.hideLanguage = true;
   }
 
   ngOnInit(): void {

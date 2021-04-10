@@ -16,7 +16,7 @@ import java.time.LocalDate;
  * @see com.kobe.warehouse.security.PersistentTokenRememberMeServices
  */
 @Entity
-@Table(name = "jhi_persistent_token")
+@Table(name = "persistent_token")
 public class PersistentToken implements Serializable {
 
     private static final long serialVersionUID = 1L;

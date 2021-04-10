@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Decondition.
+    -->
+    <changeSet id="20210319215902-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="decondition"
+                                 constraintName="fk_decondition_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="produit_id"
+                                 baseTableName="decondition"
+                                 constraintName="fk_decondition_produit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="produit"/>
+
+        <addForeignKeyConstraint baseColumnNames="date_dimension_id"
+                                 baseTableName="decondition"
+                                 constraintName="fk_decondition_date_dimension_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="date_dimension"/>
+
+    </changeSet>
+</databaseChangeLog>

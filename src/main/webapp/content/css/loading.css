@@ -150,3 +150,7 @@
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
 }
+.table th,
+.table td {
+  padding: 0.3rem !important;
+}

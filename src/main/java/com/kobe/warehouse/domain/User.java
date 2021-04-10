@@ -21,7 +21,7 @@ import java.util.Set;
  * A user.
  */
 @Entity
-@Table(name = "jhi_user")
+@Table(name = "user")
 public class User extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,16 +43,16 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private String password;
 
     @Size(max = 50)
-    @Column(name = "first_name", length = 50)
+    @Column(name = "first_name", length = 100)
     private String firstName;
 
     @Size(max = 50)
-    @Column(name = "last_name", length = 50)
+    @Column(name = "last_name", length = 150)
     private String lastName;
 
     @Email
-    @Size(min = 5, max = 254)
-    @Column(length = 254, unique = true)
+    @Size(max = 254)
+    @Column(length = 254)
     private String email;
 
     @NotNull
@@ -83,7 +83,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     @ManyToMany
     @JoinTable(
-        name = "jhi_user_authority",
+        name = "user_authority",
         joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
         inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
     @BatchSize(size = 20)

@@ -195,4 +195,11 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
         // This list is for sure not complete
         return StringUtils.containsAny(message, "org.", "java.", "net.", "javax.", "com.", "io.", "de.", "com.kobe.warehouse");
     }
+
+    @ExceptionHandler
+    public ResponseEntity<Problem> stockExceptionFailure(StockException ex, NativeWebRequest request) {
+        StockException problem = new StockException();
+        return create(problem, request, HeaderUtil.createFailureAlert(applicationName,  true, problem.getEntityName(), problem.getErrorKey(), problem.getMessage()));
+    }
+
 }
